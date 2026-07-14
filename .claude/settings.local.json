@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm install --no-audit --no-fund)",
+      "PowerShell(npm run build)",
+      "PowerShell($routes = @\\('/','/services','/services/embedded-systems','/services/cybersecurity-iec-62443','/services/digital-engineering','/services/cloud-data','/services/iot','/products','/products/digital-product-passport','/industries','/industries/rail','/industries/aerospace','/industries/industrial-manufacturing','/private-equity','/delivery-model','/about','/careers','/contact','/sitemap.xml','/robots.txt','/opengraph-image'\\); foreach \\($r in $routes\\) { try { $resp = Invoke-WebRequest -Uri \"http://localhost:3000$r\" -UseBasicParsing -TimeoutSec 30; Write-Output \"$\\($resp.StatusCode\\) $r\" } catch { Write-Output \"FAIL $r : $\\($_.Exception.Message\\)\" } })",
+      "PowerShell($roots = @\\(\"$env:USERPROFILE\\\\Desktop\",\"$env:USERPROFILE\\\\Downloads\",\"$env:USERPROFILE\\\\Documents\",\"$env:USERPROFILE\\\\OneDrive\",\"$env:USERPROFILE\"\\); foreach \\($r in $roots\\) { if \\(Test-Path $r\\) { Get-ChildItem $r -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'crest|Crest|reference' } | ForEach-Object { $_.FullName } } })",
+      "PowerShell(npm install --save-dev sharp --no-audit --no-fund)",
+      "PowerShell(node \"C:\\\\Users\\\\Idhanth\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Crest-Tech-Website\\\\af648731-b6e0-42e3-b8b5-afb4b3815148\\\\scratchpad\\\\process-logo.mjs\")",
+      "PowerShell(New-Item -ItemType Directory -Force D:\\\\Crest_Tech_Website\\\\scripts)",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\Idhanth\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Crest-Tech-Website\\\\af648731-b6e0-42e3-b8b5-afb4b3815148\\\\scratchpad\\\\process-logo.mjs\" D:\\\\Crest_Tech_Website\\\\scripts\\\\process-logo.mjs)",
+      "PowerShell(node D:\\\\Crest_Tech_Website\\\\scripts\\\\process-logo.mjs)",
+      "PowerShell(Remove-Item D:\\\\Crest_Tech_Website\\\\app\\\\icon.svg -Confirm:$false)",
+      "PowerShell($routes = @\\('/','/services/mechanical-engineering','/services/software-services','/services/gcc-bot','/services/recruitment-resource-augmentation','/industries/automotive','/industries/government-public-sector','/industries/banking-retail','/industries/oil-gas','/team','/about','/logo-full.png','/logo-mark.png'\\); foreach \\($r in $routes\\) { try { $resp = Invoke-WebRequest -Uri \"http://localhost:3000$r\" -UseBasicParsing -TimeoutSec 60; Write-Output \"$\\($resp.StatusCode\\) $r\" } catch { Write-Output \"FAIL $r\" } })"
+    ]
+  }
+}

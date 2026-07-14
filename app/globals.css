@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+  Crest Technologies design tokens
+  --------------------------------
+  Deep ink/navy base, cool steel-grey secondary, restrained brass accent.
+  A muted signal-teal is reserved for the sustainability / DPP context only.
+*/
+@theme {
+  /* Ink / navy scale — primary brand base */
+  --color-ink-950: #080e18;
+  --color-ink-900: #0c1524;
+  --color-ink-800: #122036;
+  --color-ink-700: #1a2c48;
+  --color-ink-600: #24395c;
+  --color-ink-500: #33507e;
+
+  /* Steel grey scale — secondary / neutrals */
+  --color-steel-900: #232b34;
+  --color-steel-700: #46525f;
+  --color-steel-500: #64707d;
+  --color-steel-400: #8b96a2;
+  --color-steel-300: #b4bcc5;
+  --color-steel-200: #d5dade;
+  --color-steel-100: #e9ecef;
+  --color-steel-50: #f4f6f7;
+
+  /* Brass accent — used sparingly: rules, markers, key CTAs */
+  --color-brass-600: #8f6b2a;
+  --color-brass-500: #a87f33;
+  --color-brass-400: #c09a4b;
+  --color-brass-300: #d4b571;
+  --color-brass-100: #f3ead6;
+
+  /* Signal teal — sustainability / DPP context only */
+  --color-signal-700: #1d5f58;
+  --color-signal-500: #2e7d74;
+  --color-signal-300: #7ab5ae;
+  --color-signal-100: #e2efed;
+
+  --font-sans: var(--font-plex-sans), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "Consolas", monospace;
+
+  --breakpoint-3xl: 120rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-white text-steel-900 antialiased;
+  font-feature-settings: "ss01", "cv05";
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-brass-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-brass-300);
+  color: var(--color-ink-900);
+}
+
+/* Display type utility — semi-expanded Archivo for headings */
+.font-display {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  letter-spacing: -0.015em;
+}
+
+/* Monospace spec labels — the "engineering drawing" annotation voice */
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Circuit trace animation for the hero schematic */
+@keyframes trace-draw {
+  from {
+    stroke-dashoffset: 460;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .trace-line {
+    /* 460 exceeds the longest trace path (~402px) so each trace draws once, fully */
+    stroke-dasharray: 460;
+    animation: trace-draw 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .trace-node {
+    animation: node-pulse 4s ease-in-out infinite;
+  }
+}
