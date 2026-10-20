@@ -28,6 +28,14 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  // Canonical resolves per page against metadataBase, so every URL variation
+  // (http/https, apex/www) consolidates to https://www.crest-technologies.com
+  alternates: { canonical: "./" },
+  // Google Search Console meta-tag verification (optional — DNS verification
+  // needs no code). Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel env.
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   title: {
     default:
       "Crest Technologies — Embedded Systems Engineering & IEC 62443 Compliance",

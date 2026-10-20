@@ -63,7 +63,10 @@ direct email address, so nothing is silently lost.
 - Per-page metadata and OpenGraph tags (`app/layout.tsx` + each page)
 - Generated OG image: `app/opengraph-image.tsx`
 - `app/sitemap.ts` → `/sitemap.xml`, `app/robots.ts` → `/robots.txt`
-- Canonical domain is set in `lib/site.ts` (`site.url`)
+- Canonical domain is set in `lib/site.ts` (`site.url`); canonical `<link>`
+  tags are emitted on every page
+- **See [SEO.md](SEO.md)** for domain-variation handling and the Google
+  Search Console setup & usage guide
 
 ## Design system
 
